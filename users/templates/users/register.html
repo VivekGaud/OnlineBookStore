@@ -1,0 +1,32 @@
+{% extends "books/index.html" %}
+{% block content %}
+<div class="top_catagory_area section-padding-80 clearfix" ">
+	<div class="col-12" align="center">
+	<form method="POST">
+		{% csrf_token %}
+		<div class="col-4" align="center">
+	    	{{form.username.label}}
+	    	{{ form.username }}
+    	</div><br>
+    	<div class="col-4" align="center">
+	    	{{form.password1.label}}
+	    	{{ form.password1 }}
+    	</div><br>
+    	<div class="col-4" align="center">
+	    	{{form.password2.label}}
+	    	{{ form.password2 }}<br>
+	    </div><br>
+    	<button type="submit" class="btn btn-outline-secondary btn-lg" style="">register</button>
+	</form>
+</div>
+</div>
+	{% if messages %}
+	{% for message in messages %}
+	<script type="text/javascript">
+		alert('{{ message }}');
+
+	</script>
+	{% endfor %}
+	{% endif %}
+
+{% endblock %}

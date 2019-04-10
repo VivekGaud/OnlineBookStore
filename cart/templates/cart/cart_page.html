@@ -1,0 +1,45 @@
+{% extends "books/index.html" %}
+{% block content %}
+
+<h1>{{ name }}</h1>
+    <!-- ##### Single Product Details Area Start ##### -->
+    {% for uNames in uName %}
+    
+    <section class="single_product_details_area d-flex align-items-center" ">
+
+        <!-- Single Product Thumb -->
+             <div class="col-sm-5">
+            <div class="product-img" style="float: right;">
+            	{% for all_books in all_book %}
+            	{% if all_books.book_img == uNames.book_img %}
+                <img src="{{ all_books.book_img.url }}" alt="">
+            	{% endif %}
+            	{% endfor %}
+                
+            
+        </div>
+        </div>
+
+        <!-- Single Product Description -->
+        
+        	  <div class="single_product_desc clearfix" >
+            <a>{{uNames.book_cat}} </a>
+            <a >
+                <h2>{{ uNames.auther_names }}  </h2>
+            </a>
+            <p class="product-price"> {{ uNames.book_prices }}</p>
+           
+            <a href="/remove/{{uNames.book_id}}/" name="remove" class="btn essence-btn">Remove</a>
+            
+        </div>
+	
+	
+
+	
+      
+    </section><br>
+    {% endfor %}
+
+    
+    {% endblock %}
+	

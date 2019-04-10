@@ -1,0 +1,22 @@
+{% extends "books/index.html" %}
+{% block content %}
+<div class="top_catagory_area section-padding-80 clearfix" ">
+	<div class="col-12" align="center">
+	<form method="POST">
+		{% csrf_token %}
+    	{{form.as_p}}
+    		<button type="submit" class="btn btn-outline-secondary btn-lg" style="" >Login</button>
+    	
+	</form>
+	</div>
+</div>
+	{% if messages %}
+	{% for message in messages %}
+	<script type="text/javascript">
+		alert('{{ message }}');
+
+	</script>
+	{% endfor %}
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "books/index.html" %}
+
+{% block content %}
+
+    <!-- ##### Welcome Area Start ##### -->
+    <section class="welcome_area bg-img background-overlay" style="background-image: url();">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="hero-content">
+                        <h6>asoss</h6>
+                        <h2>New Collection</h2>
+                        <a href="{% url 'index' %}" class="btn essence-btn">view books</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ##### Top Catagory Area Start ##### -->
+    <div class="top_catagory_area section-padding-80 clearfix" style="">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Catagory -->
+                {% for random_items_cats in random_items_cat %}
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
+                        <div class="catagory-content">
+                            <a href="/books/cat/{{ random_items_cats.id }}/">{{random_items_cats}}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+    <!-- ##### Top Catagory Area End ##### -->
+    {% endblock %}
+

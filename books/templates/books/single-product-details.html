@@ -1,0 +1,53 @@
+{% extends "books/index.html" %}
+{% block content %}
+
+
+    <!-- ##### Single Product Details Area Start ##### -->
+    <section class="single_product_details_area d-flex align-items-center">
+
+        <!-- Single Product Thumb -->
+             <div class="col-sm-5">
+            <div class="product-img" style="float: right;">
+                <img src="{{ book.book_img.url }}" alt="">
+            
+        </div>
+        </div>
+
+        <!-- Single Product Description -->
+        <div class="single_product_desc clearfix">
+            <span>{{book.book_cat}}</span>
+            <a href="cart.html">
+                <h2>{{book.auther_name}}</h2>
+            </a>
+            <p class="product-price"> {{book.book_price}}</p>
+            <p class="product-desc">product discription</p>
+
+            <!-- Form -->
+            <form class="cart-form clearfix" method="post">
+                
+                <!-- Cart & Favourite Box -->
+                <div class="cart-fav-box d-flex align-items-center">
+                    <!-- Cart -->
+                  
+                    {% if request.session.username %}
+                    
+                    
+                    <a href="/cart/{{book.id}}/" name="addtocart" value="5" class="btn essence-btn">Add to cart</a>
+                   
+
+                    {% else %}
+                    
+                    
+                    <a href="{% url 'user_login' %}" class="btn essence-btn">Add to cart</a>
+                    
+                  
+                    {% endif %}
+                    <!-- Favourite -->
+                    <div class="product-favourite ml-4">
+                        <a href="#" class="favme fa fa-heart"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    {% endblock %}
